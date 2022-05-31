@@ -1,14 +1,99 @@
 <!DOCTYPE html>
 <html>
+
 <head>
     <meta charset='utf-8'>
     <meta http-equiv='X-UA-Compatible' content='IE=edge'>
-    <title>Page Title</title>
+    <title>Widget SDK Testing</title>
     <meta name='viewport' content='width=device-width, initial-scale=1'>
-    <link rel='stylesheet' type='text/css' media='screen' href='main.css'>
-    <script src='main.js'></script>
+
 </head>
+
 <body>
-    test
+
+    <div class="initLineBase">
+        <div style="display: flex;">
+            <div>
+                <p>Env :</p>
+                <select name="cars" id="env">
+                    <option value="dev">dev</option>
+                    <option value="testing">testing</option>
+                    <option value="staging">staging</option>
+                    <option value="prod">prod</option>
+                </select>
+            </div>
+            <div style="margin-left: 20px;">
+                <p>Workspace ID :</p><input id="wsid" type="text">
+            </div>
+            <div style="margin-left: 20px;">
+                <p>Org ID :</p><input  id="orgid" type="text">
+            </div>
+        </div>
+        <div class="">
+            <button style="margin-top: 10px;" id="initBtn">Init LineBase</button>
+        </div>
+    </div>
+    <br>
+    <div>
+        <h1>Action</h1>
+        <section>
+            <h4>Open Widget</h4> <button>Open</button>
+        </section>
+        <section>
+            <h4>Close Widget</h4>
+            <button>Close</button>
+        </section>
+        <section>
+            <h4>Toggle Widget</h4>
+            <button>Toggle</button>
+        </section>
+        <section>
+            <h4>Show Widget</h4><button>Show</button>
+        </section>
+        <section>
+            <h4>Hide Widget</h4><button>Hide</button>
+        </section>
+        <section>
+            <h4>Send message</h4><button>Send</button>
+            <textarea name="" id="" cols="30" rows="10"></textarea>
+        </section>
+    </div>
+    <script src='main.js'></script>
+
 </body>
+
 </html>
+
+<style>
+    .initLineBase {
+        padding: 10px;
+        width: 435px;
+        border: 1px black;
+        position: relative;
+    }
+
+    .initLineBase button {
+        position: absolute;
+        right: 0;
+    }
+
+    section {
+        margin-bottom: 16px;
+        display: flex;
+        height: 22px;
+    }
+
+    section h4 {
+        margin: 2px;
+        width: 100px;
+    }
+
+    section textarea {
+        margin-left: 10px;
+        height: 50px;
+    }
+
+    section button {
+        margin-left: 14px;
+    }
+</style>
