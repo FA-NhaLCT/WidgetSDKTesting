@@ -56,8 +56,9 @@
                 <h4>Hide Widget</h4><button id="doHideBtn">Hide</button>
             </section>
             <section>
-                <h4>Send message</h4><button id="doSendBtn">Send</button>
-                <textarea name="" id="" cols="30" rows="10"></textarea>
+                <h4>Send message</h4>
+                <textarea name="" id="doSendValue" cols="30" rows="10"></textarea>
+                <button id="doSendBtn">Send</button>
             </section>
         </div>
         <div class="action-container__section">
@@ -195,7 +196,7 @@
     }
 
     .action-container {
-        display: flex;
+        display: none;
     }
 
     .action-container__section {
@@ -203,5 +204,6 @@
         padding: 20px;
         margin-right: 20px;
         margin-top: 10px;
+        width: 450px;
     }
 </style>

@@ -1,5 +1,5 @@
 function initLineBase(env, orgId, wsId) {
-    console.log({env, orgId, wsId})
+    console.log({ env, orgId, wsId })
     window.$linebase = [];
     window.LINEBASE_ORG_ID = orgId;
     window.LINEBASE_WORKSPACE_ID = wsId;
@@ -9,6 +9,7 @@ function initLineBase(env, orgId, wsId) {
         s.async = 1;
         d.getElementsByTagName('head')[0].appendChild(s);
     })();
+    document.getElementsByClassName('initLineBase')[0].style.display = "none";
 }
 
 const buttonInit = document.getElementById('initBtn')
@@ -59,7 +60,8 @@ const initActionMethods = () => {
         console.log(`do${item}Btn`)
         document.getElementById(`do${item}Btn`).addEventListener("click", () => {
             if (item === 'Send') {
-                $linebase.do("message", "send", ["text", "Hi mate!"])
+                const value = document.getElementById(`doSendValue`).value
+                $linebase.do("message", "send", ["text", value])
             }
             else linebase.do('chat', item.toLowerCase())
         })
@@ -70,6 +72,7 @@ const initMethods = () => {
     initStateMethods()
     initActionMethods()
 
+    document.getElementsByClassName('action-container')[0].style.display = "block";
     alert('Methods đã init')
 }
 
