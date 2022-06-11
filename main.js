@@ -1,10 +1,10 @@
 function initLineBase(env, orgId, wsId) {
     window.$linebase = [];
-    window.LINEBASE_ORG_ID = '62a01d398185f146b643d1e6';
-    window.LINEBASE_WORKSPACE_ID = '62a01d398185f1024843d1e8';
+    window.LINEBASE_ORG_ID = orgId;
+    window.LINEBASE_WORKSPACE_ID = wsId;
     (function () {
         d = document; s = d.createElement('script');
-        s.src = 'https://lb-cw-dev.fireapps.tech/main.js';
+        s.src = `https://lb-cw-${env}.fireapps.tech/main.js`;
         s.async = 1;
         d.getElementsByTagName('head')[0].appendChild(s);
     })();
