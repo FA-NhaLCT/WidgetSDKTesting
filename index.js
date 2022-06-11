@@ -1,10 +1,11 @@
 function initLineBase(env, orgId, wsId) {
+    console.log({env, orgId, wsId})
     window.$linebase = [];
     window.LINEBASE_ORG_ID = orgId;
     window.LINEBASE_WORKSPACE_ID = wsId;
     (function () {
         d = document; s = d.createElement('script');
-        s.src = `https://lb-cw-${env}.fireapps.tech/main.js`;
+        s.src = env;
         s.async = 1;
         d.getElementsByTagName('head')[0].appendChild(s);
     })();
@@ -68,6 +69,7 @@ const initActionMethods = () => {
 const initMethods = () => {
     initStateMethods()
     initActionMethods()
+
     alert('Methods đã init')
 }
 

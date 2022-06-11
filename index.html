@@ -13,7 +13,7 @@
         integrity="sha512-lmuNSGprTM9SdDQ8WuvkeGSgUn4R7jogp37VuQ8rrdNOSHQ9UDY9PF5f/gXjhMytuvxf3NADUXL+eb7K0DvIcw=="
         crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <div class="initLineBase">
-        <div style="display: flex;">
+        <div style="display: flex; margin: 0 auto">
             <div>
                 <p>Env :</p>
                 <select name="cars" id="env">
@@ -63,20 +63,23 @@
         <div class="action-container__section">
             <h1>Check</h1>
             <section>
-                <button id="isOpenedBtn">Opened</button>
+                <h4>Is widget opened?</h4> <button id="isOpenedBtn">Opened</button>
             </section>
             <section>
-
+                <h4>Is widget closed?</h4> 
                 <button id="isClosedBtn">Closed</button>
             </section>
             <section>
+                <h4>Is widget visible?</h4> 
                 <button id="isVisibleBtn">Visible</button>
             </section>
-            <section><button id="isHiddenBtn">Hidden</button>
+            <section>
+                <h4>Is widget hidden?</h4> 
+                <button id="isHiddenBtn">Hidden</button>
             </section>
         </div>
     </div>
-    <script src='main.js'></script>
+    <script src='index.js'></script>
     <!-- <script>
         function initLineBase(env, orgId, wsId) {
             window.$linebase = [];
@@ -179,7 +182,7 @@
 
     section h4 {
         margin: 2px;
-        width: 100px;
+        width: 130px;
     }
 
     section textarea {
@@ -191,9 +194,14 @@
         margin-left: 14px;
     }
 
-    .action-container {}
+    .action-container {
+        display: flex;
+    }
 
     .action-container__section {
+        border: 1px solid;
+        padding: 20px;
+        margin-right: 20px;
         margin-top: 10px;
     }
 </style>
