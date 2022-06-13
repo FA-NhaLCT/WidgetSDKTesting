@@ -47,6 +47,7 @@ const initStateMethods = () => {
     stateArray.forEach(item => {
         document.getElementById(`is${item}Btn`).addEventListener("click", () => {
             const data = linebase.is('widget', item.toLowerCase())
+            console.log('linebase.is("widget", item.toLowerCase())')
             alert(data)
         })
     })
@@ -61,9 +62,13 @@ const initActionMethods = () => {
         document.getElementById(`do${item}Btn`).addEventListener("click", () => {
             if (item === 'Send') {
                 const value = document.getElementById(`doSendValue`).value
-                $linebase.do("message", "send", ["text", value])
+                linebase.do("message", "send", ["text", value])
+                console.log('$linebase.do("message", "send", ["text", value])')
             }
-            else linebase.do('chat', item.toLowerCase())
+            else {
+                linebase.do('chat', item.toLowerCase())
+                console.log('linebase.do("chat", item.toLowerCase())')
+            }
         })
     })
 }
