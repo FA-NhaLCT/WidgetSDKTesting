@@ -36,48 +36,69 @@
     </div>
     <br>
     <div class="action-container">
-        <div class="action-container__section">
-            <h1>Action</h1>
-            <section>
-                <h4>Open Widget</h4> <button id="doOpenBtn">Open</button>
-            </section>
-            <section>
-                <h4>Close Widget</h4>
-                <button id="doCloseBtn">Close</button>
-            </section>
-            <section>
-                <h4>Toggle Widget</h4>
-                <button id="doToggleBtn">Toggle</button>
-            </section>
-            <section>
-                <h4>Show Widget</h4><button id="doShowBtn">Show</button>
-            </section>
-            <section>
-                <h4>Hide Widget</h4><button id="doHideBtn">Hide</button>
-            </section>
-            <section>
-                <h4>Send message</h4>
-                <textarea name="" id="doSendValue" cols="30" rows="10"></textarea>
-                <button id="doSendBtn">Send</button>
-            </section>
+        <div style="display: flex;">
+            <div class="action-container__section">
+                <h1>Action</h1>
+                <section>
+                    <h4>Open Widget</h4> <button id="doOpenBtn">Open</button>
+                </section>
+                <section>
+                    <h4>Close Widget</h4>
+                    <button id="doCloseBtn">Close</button>
+                </section>
+                <section>
+                    <h4>Toggle Widget</h4>
+                    <button id="doToggleBtn">Toggle</button>
+                </section>
+                <section>
+                    <h4>Show Widget</h4><button id="doShowBtn">Show</button>
+                </section>
+                <section>
+                    <h4>Hide Widget</h4><button id="doHideBtn">Hide</button>
+                </section>
+                <section>
+                    <h4>Send message</h4>
+                    <textarea name="" id="doSendValue" cols="30" rows="10"></textarea>
+                    <button id="doSendBtn">Send</button>
+                </section>
+            </div>
+            <div class="action-container__section">
+                <h1>Check</h1>
+                <section>
+                    <h4>Is widget opened?</h4> <button id="isOpenedBtn">Opened</button>
+                </section>
+                <section>
+                    <h4>Is widget closed?</h4>
+                    <button id="isClosedBtn">Closed</button>
+                </section>
+                <section>
+                    <h4>Is widget visible?</h4>
+                    <button id="isVisibleBtn">Visible</button>
+                </section>
+                <section>
+                    <h4>Is widget hidden?</h4>
+                    <button id="isHiddenBtn">Hidden</button>
+                </section>
+            </div>
         </div>
-        <div class="action-container__section">
-            <h1>Check</h1>
-            <section>
-                <h4>Is widget opened?</h4> <button id="isOpenedBtn">Opened</button>
-            </section>
-            <section>
-                <h4>Is widget closed?</h4> 
-                <button id="isClosedBtn">Closed</button>
-            </section>
-            <section>
-                <h4>Is widget visible?</h4> 
-                <button id="isVisibleBtn">Visible</button>
-            </section>
-            <section>
-                <h4>Is widget hidden?</h4> 
-                <button id="isHiddenBtn">Hidden</button>
-            </section>
+        <div class="action-container__section action-container__section-on">
+            <h1>On</h1>
+            <div style="display:flex">
+                <section style="display: flex;flex-direction: column;">
+                    <h4>Widget opened?</h4>
+                    <div>
+                        <button id="isOnOpenedBtn">On</button>
+                        <button id="isOffOpenedBtn">Off</button>
+                    </div>
+                </section>
+                <section style="display: flex;flex-direction: column;">
+                    <h4>Widget closed?</h4>
+                    <div>
+                        <button id="isOnCloseddBtn">On</button>
+                        <button id="isOffCloseddBtn">Off</button>
+                    </div>
+                </section>
+            </div>
         </div>
     </div>
     <script src='index.js'></script>
@@ -191,7 +212,7 @@
         height: 50px;
     }
 
-    section button {
+    section>button {
         margin-left: 14px;
     }
 
@@ -205,5 +226,17 @@
         margin-right: 20px;
         margin-top: 10px;
         width: 450px;
+    }
+
+    /* .action-container__section-on {
+        height: 320px;
+        width: 700px;
+
+    } */
+
+    .on-callback__container {
+        border: 1px solid;
+        width: 200px;
+        height: 200px;
     }
 </style>

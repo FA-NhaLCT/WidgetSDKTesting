@@ -1,5 +1,4 @@
 function initLineBase(env, orgId, wsId) {
-    console.log({ env, orgId, wsId })
     window.$linebase = [];
     window.LINEBASE_ORG_ID = orgId;
     window.LINEBASE_WORKSPACE_ID = wsId;
@@ -47,7 +46,6 @@ const initStateMethods = () => {
     stateArray.forEach(item => {
         document.getElementById(`is${item}Btn`).addEventListener("click", () => {
             const data = linebase.is('widget', item.toLowerCase())
-            console.log('linebase.is("widget", item.toLowerCase())')
             alert(data)
         })
     })
@@ -58,26 +56,49 @@ const initActionMethods = () => {
 
     const linebase = $linebase;
     actionArray.forEach(item => {
-        console.log(`do${item}Btn`)
         document.getElementById(`do${item}Btn`).addEventListener("click", () => {
             if (item === 'Send') {
                 const value = document.getElementById(`doSendValue`).value
                 linebase.do("message", "send", ["text", value])
-                console.log('$linebase.do("message", "send", ["text", value])')
             }
             else {
                 linebase.do('chat', item.toLowerCase())
-                console.log('linebase.do("chat", item.toLowerCase())')
             }
         })
     })
 }
 
+const initOnMethods = () => {
+    if ($linebase) {
+        const openedFunc = () => {
+            console.log('$linebase.on("opened") opened')
+        }
+        const closedFunc = () => {
+            console.log('$linebase.on("closed") closed')
+        }
+        document.getElementById(`isOnOpenedBtn`).addEventListener("click", () => {
+            $linebase.on("opened", openedFunc)
+
+        })
+        document.getElementById(`isOffOpenedBtn`).addEventListener("click", () => {
+            $linebase.off("opened", openedFunc)
+        })
+        document.getElementById(`isOnCloseddBtn`).addEventListener("click", () => {
+            $linebase.on("closed", closedFunc)
+        })
+        document.getElementById(`isOffCloseddBtn`).addEventListener("click", () => {
+            $linebase.off("closed", closedFunc)
+        })
+    }
+}
+
 const initMethods = () => {
     initStateMethods()
     initActionMethods()
+    initOnMethods()
 
     document.getElementsByClassName('action-container')[0].style.display = "block";
     alert('Methods đã init')
+    console.clear()
 }
 
