@@ -81,27 +81,50 @@
                 </section>
             </div>
         </div>
-        <div class="action-container__section action-container__section-on">
-            <h1>On</h1>
-            <div style="display:flex">
-                <section style="display: flex;flex-direction: column;">
-                    <h4>Widget opened?</h4>
-                    <div>
-                        <button id="isOnOpenedBtn">On</button>
-                        <button id="isOffOpenedBtn">Off</button>
-                    </div>
-                </section>
-                <section style="display: flex;flex-direction: column;">
-                    <h4>Widget closed?</h4>
-                    <div>
-                        <button id="isOnCloseddBtn">On</button>
-                        <button id="isOffCloseddBtn">Off</button>
-                    </div>
-                </section>
+        <div style="display: flex;">
+            <div class="action-container__section action-container__section-on">
+                <h1>On</h1>
+                <div style="display:flex">
+                    <section style="display: flex;flex-direction: column;">
+                        <h4>Widget opened?</h4>
+                        <div>
+                            <button id="isOnOpenedBtn">On</button>
+                            <button id="isOffOpenedBtn">Off</button>
+                        </div>
+                    </section>
+                    <section style="display: flex;flex-direction: column;">
+                        <h4>Widget closed?</h4>
+                        <div>
+                            <button id="isOnCloseddBtn">On</button>
+                            <button id="isOffCloseddBtn">Off</button>
+                        </div>
+                    </section>
+                </div>
+            </div>
+            <div class="action-container__section action-container__section-get">
+                <h1>Get</h1>
+                <div style="display:flex">
+                    <section style="display: flex;flex-direction: column; margin-right: 10px;">
+                        <h5>Get single contact data attribute general</h5>
+                        <div>
+                            <input id="inputContactDataAttr" type="text" :placeholder="{value}">
+                            <button id="btnGetSingleContactDataAttrValue">Get</button>
+                        </div>
+                        <span>$linebase.get("contact", "{value}")</span>
+                    </section>
+                    <section style="display: flex;flex-direction: column;">
+                        <h5>Get all contact data attribute general</h5>
+                        <div>
+                            <button id="btnGetAllContactDataAttrValue">Get</button>
+                        </div>
+                        <span>$linebase.get("contact", null)</span>
+                    </section>
+                </div>
             </div>
         </div>
     </div>
-    <script src='index.js'></script>
+
+    <script type="module" src='index.js'></script>
     <!-- <script>
         function initLineBase(env, orgId, wsId) {
             window.$linebase = [];
@@ -228,9 +251,21 @@
         width: 450px;
     }
 
-    /* .action-container__section-on {
+    .action-container__section-get {
         height: 320px;
-        width: 700px;
+        width: 450px;
+    }
+
+    .action-container__section-get section {
+        height: 120px;
+        padding: 5px;
+        /* border: 1px solid; */
+    }
+    .action-container__section-get h5 {
+        margin: 0px;
+        margin-bottom: 5px;
+    }
+    /* .action-container__section-on {
 
     } */
 
