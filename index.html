@@ -110,7 +110,7 @@
                             <input id="inputContactDataAttr" type="text" :placeholder="{value}">
                             <button id="btnGetSingleContactDataAttrValue">Get</button>
                         </div>
-                        <span>$linebase.get("contact", "{value}")</span>
+                        <span>$linebase.get("contact", "value")</span>
                     </section>
                     <section style="display: flex;flex-direction: column;">
                         <h5>Get all contact data attribute general</h5>
@@ -261,12 +261,19 @@
         padding: 5px;
         /* border: 1px solid; */
     }
+
     .action-container__section-get h5 {
+        font-size: 13px;
         margin: 0px;
         margin-bottom: 5px;
     }
-    /* .action-container__section-on {
 
+    .action-container__section-get span {
+        font-size: 13px;
+    }
+
+    /* .action-container__section-on {
+        
     } */
 
     .on-callback__container {
