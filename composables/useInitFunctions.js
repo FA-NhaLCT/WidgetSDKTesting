@@ -51,7 +51,7 @@ const initOnMethods = () => {
     }
 }
 
-const initGetMethods = () => {
+const initGetMethods = async () => {
     if ($linebase) {
         const inputContactDataAttr = document.getElementById('inputContactDataAttr')
         document.getElementById(`btnGetSingleContactDataAttrValue`).addEventListener("click", () => {
@@ -63,6 +63,18 @@ const initGetMethods = () => {
             const data = $linebase.get("contact", null)
             alert(data)
             setTimeout(() => { console.log({ data }) }, 1000)
+        })
+        const inputContactDataAttrCustom = document.getElementById('inputContactDataAttr')
+        document.getElementById(`btnGetSingleContactDataAttrCustomValue`).addEventListener("click", () => {
+            $linebase.get("contact", inputContactDataAttrCustom.value, "custom").then
+            alert(data)
+            setTimeout(() => { console.log({ data }) }, 1000)
+        })
+        document.getElementById(`btnGetAllContactDataAttrCustomValue`).addEventListener("click", () => {
+            console.log('btnGetAllContactDataAttrCustomValue click')
+            $linebase.get("contact", null, "custom").then(data => { console.log("Đây nè", data) })
+            // alert(data)
+            // setTimeout(() => { console.log({ data }) }, 1000)
         })
     }
 }
