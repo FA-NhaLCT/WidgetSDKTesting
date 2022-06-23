@@ -17,7 +17,6 @@
             <div>
                 <p>Env :</p>
                 <select name="cars" id="env">
-                    <option value="dev">dev</option>
                     <option value="testing">testing</option>
                     <option value="staging">staging</option>
                     <option value="prod">prod</option>
@@ -81,6 +80,84 @@
                 </section>
             </div>
         </div>
+
+        <div style="display: flex;">
+            <div class="action-container__section action-container__section-get">
+                <h1>Get</h1>
+                <div style="display:flex">
+                    <section style="display: flex;flex-direction: column; margin-right: 10px;">
+                        <h5>Get single contact data attribute general</h5>
+                        <div>
+                            <input id="inputContactDataAttr" type="text" :placeholder="{value}">
+                            <button id="btnGetSingleContactDataAttrValue">Get</button>
+                        </div>
+                        <span>$linebase.get("contact", "value")</span>
+                    </section>
+                    <section style="display: flex;flex-direction: column;">
+                        <h5>Get all contact data attribute general</h5>
+                        <div>
+                            <button id="btnGetAllContactDataAttrValue">Get</button>
+                        </div>
+                        <span>$linebase.get("contact", null)</span>
+                    </section>
+                </div>
+                <div style="display:flex; margin-top: 20px;">
+                    <section style="display: flex;flex-direction: column; margin-right: 10px;">
+                        <h5>Get single contact data attribute custom</h5>
+                        <div>
+                            <input id="inputContactDataAttrCustom" type="text" :placeholder="{value}">
+                            <button id="btnGetSingleContactDataAttrCustomValue">Get</button>
+                        </div>
+                        <span>$linebase.get("contact", "value","custom")</span>
+                    </section>
+                    <section style="display: flex;flex-direction: column;">
+                        <h5>Get all contact data attribute custom</h5>
+                        <div>
+                            <button id="btnGetAllContactDataAttrCustomValue">Get</button>
+                        </div>
+                        <span>$linebase.get("contact", null, "custom")</span>
+                    </section>
+                </div>
+            </div>
+            <div class="action-container__section action-container__section-set">
+                <h1>Set</h1>
+                <div style="display:flex">
+                    <section style="display: flex;flex-direction: column; margin-right: 10px;">
+                        <h5>Set tag to a message</h5>
+                        <div>
+                            <input id="inputTagData" type="text" :placeholder="{value}">
+                            <button id="btnSetTag">Set</button>
+                        </div>
+                        <span>$linebase.set("message", "tag", [values])</span>
+                    </section>
+                    <!-- <section style="display: flex;flex-direction: column;">
+                        <h5>Get all contact data attribute general</h5>
+                        <div>
+                            <button id="btnGetAllContactDataAttrValue">Get</button>
+                        </div>
+                        <span>$linebase.get("contact", null)</span>
+                    </section> -->
+                </div>
+                <!-- <div style="display:flex">
+                    <section style="display: flex;flex-direction: column; margin-right: 10px;">
+                        <h5>Set single contact data attribute custom</h5>
+                        <div>
+                            <input id="inputContactDataAttrCustom" type="text" :placeholder="{value}">
+                            <button id="btnGetSingleContactDataAttrCustomValue">Get</button>
+                        </div>
+                        <span>$linebase.get("contact", "value","custom")</span>
+                    </section>
+                    <section style="display: flex;flex-direction: column;">
+                        <h5>Get all contact data attribute custom</h5>
+                        <div>
+                            <button id="btnGetAllContactDataAttrCustomValue">Get</button>
+                        </div>
+                        <span>$linebase.get("contact", null, "custom")</span>
+                    </section>
+                </div>
+            </div> -->
+            </div>
+        </div>
         <div style="display: flex;">
             <div class="action-container__section action-container__section-on">
                 <h1>On</h1>
@@ -101,47 +178,8 @@
                     </section>
                 </div>
             </div>
-            <div class="action-container__section action-container__section-get">
-                <h1>Get</h1>
-                <div style="display:flex">
-                    <section style="display: flex;flex-direction: column; margin-right: 10px;">
-                        <h5>Get single contact data attribute general</h5>
-                        <div>
-                            <input id="inputContactDataAttr" type="text" :placeholder="{value}">
-                            <button id="btnGetSingleContactDataAttrValue">Get</button>
-                        </div>
-                        <span>$linebase.get("contact", "value")</span>
-                    </section>
-                    <section style="display: flex;flex-direction: column;">
-                        <h5>Get all contact data attribute general</h5>
-                        <div>
-                            <button id="btnGetAllContactDataAttrValue">Get</button>
-                        </div>
-                        <span>$linebase.get("contact", null)</span>
-                    </section>
-                </div>
-                <div style="display:flex">
-                    <section style="display: flex;flex-direction: column; margin-right: 10px;">
-                        <h5>Get single contact data attribute custom</h5>
-                        <div>
-                            <input id="inputContactDataAttrCustom" type="text" :placeholder="{value}">
-                            <button id="btnGetSingleContactDataAttrCustomValue">Get</button>
-                        </div>
-                        <span>$linebase.get("contact", "value","custom")</span>
-                    </section>
-                    <section style="display: flex;flex-direction: column;">
-                        <h5>Get all contact data attribute custom</h5>
-                        <div>
-                            <button id="btnGetAllContactDataAttrCustomValue">Get</button>
-                        </div>
-                        <span>$linebase.get("contact", null, "custom")</span>
-                    </section>
-                </div>
-            </div>
         </div>
-    </div>
-
-    <script type="module" src='index.js'></script>
+        <script type="module" src='index.js'></script>
 </body>
 
 </html>
@@ -191,18 +229,24 @@
         width: 450px;
     }
 
-    .action-container__section-get {
+    .action-container__section-get .action-container__section-set {
         height: 320px;
         width: 450px;
     }
 
-    .action-container__section-get section {
+    .action-container__section-get>section {
         height: 120px;
         padding: 5px;
         /* border: 1px solid; */
     }
 
     .action-container__section-get h5 {
+        font-size: 13px;
+        margin: 0px;
+        margin-bottom: 5px;
+    }
+
+    .action-container__section-set h5 {
         font-size: 13px;
         margin: 0px;
         margin-bottom: 5px;

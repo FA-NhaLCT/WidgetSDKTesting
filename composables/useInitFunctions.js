@@ -79,11 +79,27 @@ const initGetMethods = async () => {
     }
 }
 
+const initSetMethods = async () => {
+    if ($linebase) {
+        const inputTagData = document.getElementById('inputTagData')
+        document.getElementById(`btnSetTag`).addEventListener("click", () => {
+            const dataTemp = inputTagData.value;
+            console.log(dataTemp)
+            console.log(dataTemp.split(","))
+            $linebase.set("message", "tag", dataTemp.split(",")).then(data => console.log(data))
+            // alert(data)
+            // setTimeout(() => { console.log({ data }) }, 1000)
+        })
+
+    }
+}
+
 const initMethods = () => {
     initStateMethods()
     initActionMethods()
     initOnMethods()
     initGetMethods()
+    initSetMethods()
 
     document.getElementsByClassName('action-container')[0].style.display = "block";
     alert('Methods đã init')
