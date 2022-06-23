@@ -130,13 +130,24 @@
                         </div>
                         <span>$linebase.set("message", "tag", [values])</span>
                     </section>
-                    <!-- <section style="display: flex;flex-direction: column;">
-                        <h5>Get all contact data attribute general</h5>
+                    <section style="display: flex;flex-direction: column;">
+                        <h5>Set contact data attribute custom</h5>
+                        <h5> cat,Tom,string-mouse,Jerry,string
+                        </h5>
                         <div>
-                            <button id="btnGetAllContactDataAttrValue">Get</button>
+                            <div class="display:flex">
+                                <input id="inputSetContactDataAttrCustom" type="text" :placeholder="{value}">
+                                <select name="cars" id="valueTypeSet">
+                                    <option value="general">General</option>
+                                    <option value="custom">Custom</option>
+                                </select>
+                            </div>
+                            <button id="btnSetContactCustom">Set</button>
                         </div>
-                        <span>$linebase.get("contact", null)</span>
-                    </section> -->
+                        <span>$linebase.set("contact",[["cat","Tom"]],valueType)</span>
+                        <!-- <span>Ví dụ input: cat,Tom,string-mouse,Jerry,string =>
+                            [["cat","Tom","string"],["mouse","Jerry","string"]]</span> -->
+                    </section>
                 </div>
                 <!-- <div style="display:flex">
                     <section style="display: flex;flex-direction: column; margin-right: 10px;">

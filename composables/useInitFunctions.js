@@ -86,7 +86,35 @@ const initSetMethods = async () => {
             const dataTemp = inputTagData.value;
             console.log(dataTemp)
             console.log(dataTemp.split(","))
-            $linebase.set("message", "tag", dataTemp.split(",")).then(data => console.log(data))
+            $linebase.set("message", "tag", dataTemp.split(",")).then(data => { console.log('hello'); console.log({ data }) })
+            // alert(data)
+            // setTimeout(() => { console.log({ data }) }, 1000)
+        })
+        const inputSetContactDataAttrCustom = document.getElementById('inputSetContactDataAttrCustom')
+        document.getElementById(`btnSetContactCustom`).addEventListener("click", () => {
+            const valueType = document.getElementById('valueTypeSet')
+            const valueTypeSetData = valueType.options[valueType.selectedIndex].value;
+            let dataTemp = inputSetContactDataAttrCustom.value;
+            console.log(dataTemp)
+            console.log(dataTemp.split("-"))
+            // if (!dataTemp.split("-").length) {
+            //     dataTemp = inputSetContactDataAttrCustom.value.split(',')
+            //     $linebase.set("contact", [dataTemp], valueTypeSetData).then(data => {
+            //         console.log('hello');
+            //         console.log({ data })
+            //     })
+            // } else {
+            let data = dataTemp.split("-")
+            data = data.map(item => {
+                console.log({item})
+                return item.split(",")
+            })
+            console.log({ data, valueTypeSetData })
+            $linebase.set("contact", data, valueTypeSetData).then(data => {
+                console.log('hello');
+                console.log({ data })
+            })
+            // }
             // alert(data)
             // setTimeout(() => { console.log({ data }) }, 1000)
         })
