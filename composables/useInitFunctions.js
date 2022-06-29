@@ -64,11 +64,10 @@ const initGetMethods = async () => {
             alert(data)
             setTimeout(() => { console.log({ data }) }, 1000)
         })
-        const inputContactDataAttrCustom = document.getElementById('inputContactDataAttr')
+        const inputContactDataAttrCustom = document.getElementById('inputContactDataAttrCustom')
         document.getElementById(`btnGetSingleContactDataAttrCustomValue`).addEventListener("click", () => {
-            $linebase.get("contact", inputContactDataAttrCustom.value, "custom").then
-            alert(data)
-            setTimeout(() => { console.log({ data }) }, 1000)
+            console.log('đây nè',inputContactDataAttrCustom.value)
+            $linebase.get("contact", inputContactDataAttrCustom.value, "custom").then(data => { console.log("Đây nè", data) })
         })
         document.getElementById(`btnGetAllContactDataAttrCustomValue`).addEventListener("click", () => {
             console.log('btnGetAllContactDataAttrCustomValue click')
@@ -91,12 +90,12 @@ const initSetMethods = async () => {
             // setTimeout(() => { console.log({ data }) }, 1000)
         })
         const inputSetContactDataAttrCustom = document.getElementById('inputSetContactDataAttrCustom')
-        document.getElementById(`btnSetContactCustom`).addEventListener("click", () => {
+        document.getElementById(`btnSetContactCustom`).addEventListener("click", async () => {
             const valueType = document.getElementById('valueTypeSet')
             const valueTypeSetData = valueType.options[valueType.selectedIndex].value;
             let dataTemp = inputSetContactDataAttrCustom.value;
             console.log(dataTemp)
-            console.log(dataTemp.split("-"))
+            console.log(dataTemp.split("---"))
             // if (!dataTemp.split("-").length) {
             //     dataTemp = inputSetContactDataAttrCustom.value.split(',')
             //     $linebase.set("contact", [dataTemp], valueTypeSetData).then(data => {
@@ -104,16 +103,15 @@ const initSetMethods = async () => {
             //         console.log({ data })
             //     })
             // } else {
-            let data = dataTemp.split("-")
+            let data = dataTemp.split("--")
             data = data.map(item => {
-                console.log({item})
+                console.log({ item })
                 return item.split(",")
             })
-            console.log({ data, valueTypeSetData })
-            $linebase.set("contact", data, valueTypeSetData).then(data => {
-                console.log('hello');
-                console.log({ data })
-            })
+            console.log({data,valueTypeSetData})
+            console.log(`$linebase.set("contact", ${data}, ${valueTypeSetData})`)
+            const data1 = await $linebase.set("contact", data, valueTypeSetData)
+            console.log('nè',{data1})   
             // }
             // alert(data)
             // setTimeout(() => { console.log({ data }) }, 1000)
