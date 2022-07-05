@@ -35,6 +35,9 @@ const initOnMethods = () => {
         const closedFunc = () => {
             console.log('$linebase.on("closed") closed')
         }
+        const messageFunc = (msg) => {
+            console.log('Tin nhắn nè',msg)
+        }
         document.getElementById(`isOnOpenedBtn`).addEventListener("click", () => {
             $linebase.on("opened", openedFunc)
 
@@ -47,6 +50,19 @@ const initOnMethods = () => {
         })
         document.getElementById(`isOffCloseddBtn`).addEventListener("click", () => {
             $linebase.off("closed", closedFunc)
+        })
+
+        document.getElementById(`isOnSentBtn`).addEventListener("click", () => {
+            $linebase.on("sent", messageFunc)
+        })
+        document.getElementById(`isOffSentBtn`).addEventListener("click", () => {
+            $linebase.off("sent", messageFunc)
+        })
+        document.getElementById(`isOnReceivedBtn`).addEventListener("click", () => {
+            $linebase.on("received", messageFunc)
+        })
+        document.getElementById(`isOffReceivedBtn`).addEventListener("click", () => {
+            $linebase.off("received", messageFunc)
         })
     }
 }
