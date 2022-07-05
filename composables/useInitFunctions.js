@@ -35,8 +35,11 @@ const initOnMethods = () => {
         const closedFunc = () => {
             console.log('$linebase.on("closed") closed')
         }
-        const messageFunc = (msg) => {
-            console.log('Tin nhắn nè',msg)
+        const messageSentFunc = (msg) => {
+            console.log('Gửi tin',msg)
+        }
+        const messageReceivedFunc = (msg) => {
+            console.log('Nhận tin',msg)
         }
         document.getElementById(`isOnOpenedBtn`).addEventListener("click", () => {
             $linebase.on("opened", openedFunc)
@@ -53,16 +56,16 @@ const initOnMethods = () => {
         })
 
         document.getElementById(`isOnSentBtn`).addEventListener("click", () => {
-            $linebase.on("sent", messageFunc)
+            $linebase.on("sent", messageSentFunc)
         })
         document.getElementById(`isOffSentBtn`).addEventListener("click", () => {
-            $linebase.off("sent", messageFunc)
+            $linebase.off("sent", messageSentFunc)
         })
         document.getElementById(`isOnReceivedBtn`).addEventListener("click", () => {
-            $linebase.on("received", messageFunc)
+            $linebase.on("received", messageReceivedFunc)
         })
         document.getElementById(`isOffReceivedBtn`).addEventListener("click", () => {
-            $linebase.off("received", messageFunc)
+            $linebase.off("received", messageReceivedFunc)
         })
     }
 }
