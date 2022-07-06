@@ -36,10 +36,10 @@ const initOnMethods = () => {
             console.log('$linebase.on("closed") closed')
         }
         const messageSentFunc = (msg) => {
-            console.log('Gửi tin',msg)
+            console.log('1 tin nhắn vừa được GỬI',msg)
         }
         const messageReceivedFunc = (msg) => {
-            console.log('Nhận tin',msg)
+            console.log('1 tin nhắn vừa được NHẬN',msg)
         }
         document.getElementById(`isOnOpenedBtn`).addEventListener("click", () => {
             $linebase.on("opened", openedFunc)
