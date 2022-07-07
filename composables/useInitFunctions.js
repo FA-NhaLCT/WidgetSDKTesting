@@ -17,11 +17,14 @@ const initActionMethods = () => {
     actionArray.forEach(item => {
         document.getElementById(`do${item}Btn`).addEventListener("click", () => {
             if (item === 'Send') {
+                console.clear()
+                console.log("check chat")
                 const value = document.getElementById(`doSendValue`).value
+                console.log({value})
                 linebase.do("message", "send", ["text", value])
             }
             else {
-                linebase.do('chat', item.toLowerCase())
+                linebase.do('widget', item.toLowerCase())
             }
         })
     })
@@ -36,10 +39,10 @@ const initOnMethods = () => {
             console.log('$linebase.on("closed") closed')
         }
         const messageSentFunc = (msg) => {
-            console.log('1 tin nhắn vừa được GỬI',msg)
+            console.log('1 tin nhắn vừa được GỬI', msg)
         }
         const messageReceivedFunc = (msg) => {
-            console.log('1 tin nhắn vừa được NHẬN',msg)
+            console.log('1 tin nhắn vừa được NHẬN', msg)
         }
         document.getElementById(`isOnOpenedBtn`).addEventListener("click", () => {
             $linebase.on("opened", openedFunc)
@@ -73,20 +76,20 @@ const initOnMethods = () => {
 const initGetMethods = async () => {
     if ($linebase) {
         const inputContactDataAttr = document.getElementById('inputContactDataAttr')
-        document.getElementById(`btnGetSingleContactDataAttrValue`).addEventListener("click", () => {
-            const data = $linebase.get("contact", inputContactDataAttr.value)
+        document.getElementById(`btnGetSingleContactDataAttrValue`).addEventListener("click", async () => {
+            const data = await $linebase.get("contact", inputContactDataAttr.value)
             alert(data)
             setTimeout(() => { console.log({ data }) }, 1000)
         })
-        document.getElementById(`btnGetAllContactDataAttrValue`).addEventListener("click", () => {
-            const data = $linebase.get("contact", null)
-            alert(data)
-            setTimeout(() => { console.log({ data }) }, 1000)
+        document.getElementById(`btnGetAllContactDataAttrValue`).addEventListener("click", async () => {
+            console.log('btnGetAllContactDataAttrValue')
+            const data = await $linebase.get("contact", null,"general")
+            console.log({data})
         })
         const inputContactDataAttrCustom = document.getElementById('inputContactDataAttrCustom')
         document.getElementById(`btnGetSingleContactDataAttrCustomValue`).addEventListener("click", () => {
-            console.log('đây nè',inputContactDataAttrCustom.value)
             $linebase.get("contact", inputContactDataAttrCustom.value, "custom").then(data => { console.log("Đây nè", data) })
+            console.log({data})
         })
         document.getElementById(`btnGetAllContactDataAttrCustomValue`).addEventListener("click", () => {
             console.log('btnGetAllContactDataAttrCustomValue click')
@@ -127,10 +130,10 @@ const initSetMethods = async () => {
                 console.log({ item })
                 return item.split(",")
             })
-            console.log({data,valueTypeSetData})
+            console.log({ data, valueTypeSetData })
             console.log(`$linebase.set("contact", ${data}, ${valueTypeSetData})`)
             const data1 = await $linebase.set("contact", data, valueTypeSetData)
-            console.log('nè',{data1})   
+            console.log('nè', { data1 })
             // }
             // alert(data)
             // setTimeout(() => { console.log({ data }) }, 1000)
