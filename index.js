@@ -11,6 +11,6 @@ buttonInit.addEventListener("click", () => {
 
     initLineBase(envWidget[envValue], orgId, wsId)
 
-    setTimeout(initMethods, 5000)
+    setTimeout(initMethods, 2000)
 
 })
