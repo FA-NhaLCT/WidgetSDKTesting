@@ -1,3 +1,5 @@
+var envVal = null;
+
 const initStateMethods = () => {
     const stateArray = ['Opened', 'Closed', 'Visible', 'Hidden']
 
@@ -17,14 +19,12 @@ const initActionMethods = () => {
     actionArray.forEach(item => {
         document.getElementById(`do${item}Btn`).addEventListener("click", () => {
             if (item === 'Send') {
-                console.clear()
-                console.log("check chat")
                 const value = document.getElementById(`doSendValue`).value
-                console.log({value})
                 linebase.do("message", "send", ["text", value])
             }
             else {
-                linebase.do('widget', item.toLowerCase())
+                const type = envVal === "testing" ? 'widget' : 'chat'
+                linebase.do(type, item.toLowerCase())
             }
         })
     })
@@ -83,13 +83,11 @@ const initGetMethods = async () => {
         })
         document.getElementById(`btnGetAllContactDataAttrValue`).addEventListener("click", async () => {
             console.log('btnGetAllContactDataAttrValue')
-            const data = await $linebase.get("contact", null,"general")
-            console.log({data})
+            const data = await $linebase.get("contact", null, "general")
         })
         const inputContactDataAttrCustom = document.getElementById('inputContactDataAttrCustom')
         document.getElementById(`btnGetSingleContactDataAttrCustomValue`).addEventListener("click", () => {
             $linebase.get("contact", inputContactDataAttrCustom.value, "custom").then(data => { console.log("Đây nè", data) })
-            console.log({data})
         })
         document.getElementById(`btnGetAllContactDataAttrCustomValue`).addEventListener("click", () => {
             console.log('btnGetAllContactDataAttrCustomValue click')
@@ -141,8 +139,8 @@ const initSetMethods = async () => {
 
     }
 }
-
-const initMethods = () => {
+const initMethods = (envValue) => {
+    envVal = envValue;
     initStateMethods()
     initActionMethods()
     initOnMethods()
