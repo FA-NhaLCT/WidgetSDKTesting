@@ -148,7 +148,6 @@ const initMethods = (envValue) => {
     initSetMethods()
 
     document.getElementsByClassName('action-container')[0].style.display = "block";
-    alert('Methods đã init')
     console.clear()
 }
 
