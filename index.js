@@ -1,6 +1,7 @@
 import { envWidget, initLineBase } from './composables/useWidget.js';
 import { initMethods } from './composables/useInitFunctions.js'
 
+var envValue = env.options[env.selectedIndex].value;
 const buttonInit = document.getElementById('initBtn')
 buttonInit.addEventListener("click", () => {
     const env = document.getElementById('env')
