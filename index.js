@@ -11,7 +11,9 @@ buttonInit.addEventListener("click", () => {
 
     initLineBase(envWidget[envValue], orgId, wsId)
 
-    setTimeout(() => {
+    window.LINEBASE_INIT_TRIGGER = function () {
+        console.log('Widget đã init')
         initMethods(envValue)
-    }, 2000)
+    };
+
 })

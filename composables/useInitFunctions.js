@@ -23,7 +23,7 @@ const initActionMethods = () => {
                 linebase.do("message", "send", ["text", value])
             }
             else {
-                const type = envVal === "testing" ? 'widget' : 'chat'
+                const type = 'widget';
                 linebase.do(type, item.toLowerCase())
             }
         })
@@ -148,7 +148,6 @@ const initMethods = (envValue) => {
     initSetMethods()
 
     document.getElementsByClassName('action-container')[0].style.display = "block";
-    console.clear()
 }
 
 export {

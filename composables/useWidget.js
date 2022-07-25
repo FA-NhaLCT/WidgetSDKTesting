@@ -18,7 +18,6 @@ const envWidget = {
     testing: 'https://lb-cw-testing.fireapps.tech/main.js',
     staging: 'https://lb-cw-stag.fireapps.tech/main.js',
     prod: 'https://cw.linebase.io/main.js'
-
 }
 
 
