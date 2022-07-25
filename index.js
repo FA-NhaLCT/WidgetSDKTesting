@@ -13,7 +13,7 @@ buttonInit.addEventListener("click", () => {
 
     window.LINEBASE_INIT_TRIGGER = function () {
         console.log('Widget đã init')
-        initMethods(envValue)
     };
+    initMethods(envValue)
 
 })
